@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Strength Checker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-icon">🔐</div>
+            <h1>Password Strength Checker</h1>
+            <p class="subtitle">Analyze your password security in real-time</p>
+        </header>
+
+        <div class="main-card">
+            <div class="input-section">
+                <label for="passwordInput">Enter Password</label>
+                <div class="password-wrapper">
+                    <input 
+                        type="password" 
+                        id="passwordInput" 
+                        placeholder="Type your password here..."
+                        autocomplete="off"
+                    >
+                    <button class="toggle-password" id="togglePassword" type="button">
+                        <span class="eye-icon">👁️</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="strength-meter">
+                <div class="strength-label">
+                    <span>Password Strength:</span>
+                    <span id="strengthLabel" class="strength-text">-</span>
+                </div>
+                <div class="meter-bar">
+                    <div id="strengthBar" class="meter-fill"></div>
+                </div>
+            </div>
+
+            <div class="entropy-section">
+                <div class="entropy-label">
+                    <span>Entropy:</span>
+                    <span id="entropyValue">0 bits</span>
+                </div>
+                <div class="entropy-bar">
+                    <div id="entropyFill" class="entropy-fill"></div>
+                </div>
+            </div>
+
+            <div class="criteria-section">
+                <h3>Security Requirements</h3>
+                <div class="criteria-list">
+                    <div class="criterion" id="criterion-length">
+                        <span class="check-icon">○</span>
+                        <span>Minimum 8 characters</span>
+                    </div>
+                    <div class="criterion" id="criterion-lowercase">
+                        <span class="check-icon">○</span>
+                        <span>At least one lowercase letter (a-z)</span>
+                    </div>
+                    <div class="criterion" id="criterion-uppercase">
+                        <span class="check-icon">○</span>
+                        <span>At least one uppercase letter (A-Z)</span>
+                    </div>
+                    <div class="criterion" id="criterion-digit">
+                        <span class="check-icon">○</span>
+                        <span>At least one digit (0-9)</span>
+                    </div>
+                    <div class="criterion" id="criterion-special">
+                        <span class="check-icon">○</span>
+                        <span>At least one special character (!@#$%...)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="breach-section" id="breachSection">
+                <button class="btn-breach" id="checkBreachBtn">
+                    <span>🔍</span>
+                    Check for Data Breaches
+                </button>
+                <div class="breach-result" id="breachResult"></div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="passedChecks">0/5</div>
+                    <div class="stat-label">Checks Passed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="passwordLength">0</div>
+                    <div class="stat-label">Characters</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="crackTime">-</div>
+                    <div class="stat-label">Time to Crack</div>
+                </div>
+            </div>
+
+            <div class="tips-section">
+                <h3>💡 Password Tips</h3>
+                <ul>
+                    <li>Use a mix of uppercase, lowercase, numbers, and symbols</li>
+                    <li>Avoid common words, phrases, or personal information</li>
+                    <li>Use at least 12-16 characters for better security</li>
+                    <li>Consider using a passphrase (e.g., "Coffee@Morning!2024")</li>
+                    <li>Never reuse passwords across different accounts</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>🔒 Your password is checked locally and never sent to any server</p>
+            <p class="footer-note">(except when checking breach databases via Have I Been Pwned API)</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
